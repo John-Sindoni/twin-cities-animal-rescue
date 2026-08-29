@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head Start -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Twin Cities Animal Rescue</title>
+</head>
+
+<!-- Body Start -->
+<body>
+    <a href="#main-content">Skip to Main Content</a>
+
+    <!-- Header Start -->
+    <header>
+        <img src="images/rescue-logo_c.png"
+             alt="Twin Cities Animal Rescue Logo"
+             width="400"
+             height="200">
+
+        <nav aria-label="Primary Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="contact.html" aria-current="page">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Start -->
+    <main id="main-content">
+        <h1>CONTACT TWIN CITIES ANIMAL RESCUE</h1>
+
+        <!-- Interest Form Start -->
+        <section id="interest-form">
+            <h2>VOLUNTEER OR FOSTER INTEREST FORM</h2>
+
+            <p>
+                <em>
+                    Interested in volunteering, fostering, or learning
+                    about adoption? Complete the form below to connect
+                    with our rescue team.
+                </em>
+            </p>
+
+            <form action="/submit-form" method="post">
+                <fieldset>
+                    <legend>CONTACT INFORMATION</legend>
+
+                    <label for="first-name">First Name:</label>
+                    <input type="text"
+                           id="first-name"
+                           name="first-name"
+                           minlength="2"
+                           maxlength="50"
+                           placeholder="John"
+                           required>
+
+                    <label for="last-name">Last Name:</label>
+                    <input type="text"
+                           id="last-name"
+                           name="last-name"
+                           minlength="2"
+                           maxlength="50"
+                           placeholder="Doe"
+                           required>
+
+                    <label for="email">Email:</label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           placeholder="johndoe@gmail.com"
+                           required>
+
+                    <label for="phone">
+                        Phone Number (Optional):
+                    </label>
+                    <input type="tel"
+                           id="phone"
+                           name="phone"
+                           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                           placeholder="407-555-1234">
+                </fieldset>
+
+                <fieldset>
+                    <legend>INTEREST INFORMATION</legend>
+
+                    <p>What are you interested in?</p>
+
+                    <input type="radio"
+                           id="volunteer"
+                           name="interest"
+                           value="volunteer"
+                           required>
+                    <label for="volunteer">Volunteer</label>
+
+                    <input type="radio"
+                           id="foster"
+                           name="interest"
+                           value="foster">
+                    <label for="foster">Foster</label>
+
+                    <input type="radio"
+                           id="adoption"
+                           name="interest"
+                           value="adoption">
+                    <label for="adoption">
+                        Adoption Information
+                    </label>
+
+                    <h3>AVAILABILITY</h3>
+
+                    <p>
+                        Select all days that you are generally available:
+                    </p>
+
+                    <input type="checkbox"
+                           id="monday"
+                           name="availability"
+                           value="monday">
+                    <label for="monday">Monday</label>
+
+                    <input type="checkbox"
+                           id="tuesday"
+                           name="availability"
+                           value="tuesday">
+                    <label for="tuesday">Tuesday</label>
+
+                    <input type="checkbox"
+                           id="wednesday"
+                           name="availability"
+                           value="wednesday">
+                    <label for="wednesday">Wednesday</label>
+
+                    <input type="checkbox"
+                           id="thursday"
+                           name="availability"
+                           value="thursday">
+                    <label for="thursday">Thursday</label>
+
+                    <input type="checkbox"
+                           id="friday"
+                           name="availability"
+                           value="friday">
+                    <label for="friday">Friday</label>
+
+                    <input type="checkbox"
+                           id="saturday"
+                           name="availability"
+                           value="saturday">
+                    <label for="saturday">Saturday</label>
+
+                    <input type="checkbox"
+                           id="sunday"
+                           name="availability"
+                           value="sunday">
+                    <label for="sunday">Sunday</label>
+
+                    <h3>EXPERIENCE WITH PETS</h3>
+
+                    <label for="pet-experience">
+                        Tell us about your experience with pets:
+                    </label>
+
+                    <textarea id="pet-experience"
+                              name="pet-experience"
+                              rows="5"
+                              cols="40"
+                              maxlength="500"
+                              placeholder="500 Character Max"
+                              required></textarea>
+
+                    <h3>SHORT MESSAGE</h3>
+
+                    <label for="message">
+                        Is there anything else you would like us to know?
+                    </label>
+
+                    <textarea id="message"
+                              name="message"
+                              rows="5"
+                              cols="40"
+                              maxlength="500"
+                              placeholder="500 Character Max"></textarea>
+                </fieldset>
+
+                <button type="submit">Submit Form</button>
+            </form>
+        </section>
+
+        <!-- Service Area Start -->
+        <section>
+            <h2>SERVICE AREA</h2>
+
+            <p>
+                <em>
+                    Twin Cities Animal Rescue serves animals and families
+                    throughout the Twin Cities area and surrounding
+                    communities.
+                </em>
+            </p>
+        </section>
+
+        <!-- Office Hours Start -->
+        <section>
+            <h2>OFFICE HOURS</h2>
+
+            <p>
+                <em>
+                    Our team responds to volunteer, foster, and adoption
+                    inquiries during regular business hours.
+                </em>
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Monday–Friday:</strong>
+                    9:00 AM–5:00 PM
+                </li>
+                <li>
+                    <strong>Saturday:</strong>
+                    10:00 AM–2:00 PM
+                </li>
+                <li>
+                    <strong>Sunday:</strong>
+                    Closed
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer Start -->
+    <footer>
+        <nav aria-label="Footer Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="contact.html" aria-current="page">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2026 Twin Cities Animal Rescue</p>
+    </footer>
+</body>
+</html>
