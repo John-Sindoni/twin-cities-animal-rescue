@@ -355,14 +355,14 @@ main img {
         justify-content: center;
         gap: var(--space-large);
         text-align: left;
+    }
 
-        main {
-            padding: var(--space-large);
-        }
+    main {
+        padding: var(--space-large);
+    }
 
-        section {
-            padding: var(--space-large);
-        }
+    section {
+        padding: var(--space-large);
     }
 }
 
