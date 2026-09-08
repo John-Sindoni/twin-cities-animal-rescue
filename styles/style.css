@@ -517,3 +517,49 @@ form button {
         transform: none;
     }
 }
+
+
+/* Show validation errors after a field has been checked. */
+#contact-form [aria-invalid="true"] {
+    border-color: #b42318;
+    outline: 0.125rem solid #b42318;
+    outline-offset: 0.125rem;
+}
+
+#contact-form [aria-invalid="true"]:focus-visible {
+    outline-width: 0.1875rem;
+    outline-offset: 0.25rem;
+}
+
+#contact-form .field-error {
+    color: #b42318;
+    font-weight: 700;
+    margin-block: 0 var(--space-medium);
+}
+
+#contact-form .field-error:empty {
+    display: none;
+}
+
+
+#form-status:not(:empty) {
+    padding: var(--space-medium);
+    border: 0.125rem solid var(--color-primary);
+    border-radius: 0.5rem;
+    background-color: #edf8f3;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+
+/* Keep each choice beside its label when the form wraps on small screens. */
+#contact-form .choice-option {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+#contact-form .choice-option input {
+    flex-shrink: 0;
+}

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <!-- Body Start -->
+
 <body>
     <!-- Header Start -->
     <header>
@@ -38,79 +39,87 @@
         <section id="interest-form">
             <h2>VOLUNTEER OR FOSTER INTEREST FORM</h2>
             <p class="section-intro">
-                    Interested in volunteering, fostering, or learning
-                    about adoption? Complete the form below to connect
-                    with our rescue team.
-                </p>
-            <form action="/submit-form" method="post">
+                Interested in volunteering, fostering, or learning
+                about adoption? Complete the form below to connect
+                with our rescue team.
+            </p>
+            <form id="contact-form" action="/submit-form" method="post">
                 <fieldset>
                     <legend>CONTACT INFORMATION</legend>
                     <label for="first-name">First Name:</label>
                     <input type="text" id="first-name" name="first-name" minlength="2" maxlength="50" placeholder="John"
-                        required>
+                        required aria-describedby="first-name-error">
+                    <p id="first-name-error" class="field-error" aria-live="polite"></p>
                     <label for="last-name">Last Name:</label>
                     <input type="text" id="last-name" name="last-name" minlength="2" maxlength="50" placeholder="Doe"
-                        required>
+                        aria-describedby="last-name-error" required>
+                    <p id="last-name-error" class="field-error" aria-live="polite"></p>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="johndoe@gmail.com" required>
+                    <input type="email" id="email" name="email" placeholder="johndoe@gmail.com" required aria-describedby="email-error">
+                    <p id="email-error" class="field-error" aria-live="polite"></p>
                     <label for="phone">
                         Phone Number (Optional):
                     </label>
                     <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                        placeholder="407-555-1234">
+                        placeholder="407-555-1234" aria-describedby="phone-error">
+                    <p id="phone-error" class="field-error" aria-live="polite"></p>
                 </fieldset>
-                <fieldset>
+                <fieldset id="interest-information">
                     <legend>INTEREST INFORMATION</legend>
                     <p>What are you interested in?</p>
-                    <input type="radio" id="volunteer" name="interest" value="volunteer" required>
-                    <label for="volunteer">Volunteer</label>
-                    <input type="radio" id="foster" name="interest" value="foster">
-                    <label for="foster">Foster</label>
-                    <input type="radio" id="adoption" name="interest" value="adoption">
-                    <label for="adoption">
-                        Adoption Information</label>
+                    <span class="choice-option"><input type="radio" id="volunteer" name="interest" value="volunteer" required aria-describedby="interest-error">
+                    <label for="volunteer">Volunteer</label></span>
+                    <span class="choice-option"><input type="radio" id="foster" name="interest" value="foster" aria-describedby="interest-error">
+                    <label for="foster">Foster</label></span>
+                    <span class="choice-option"><input type="radio" id="adoption" name="interest" value="adoption" aria-describedby="interest-error">
+                    <label for="adoption">Adoption Information</label></span>
+                    <p id="interest-error" class="field-error" aria-live="polite"></p>
+                    <p id="interest-details"></p>
                     <h3>AVAILABILITY</h3>
                     <p>Select all days that you are generally available:</p>
-                    <input type="checkbox" id="monday" name="availability" value="monday">
-                    <label for="monday">Monday</label>
-                    <input type="checkbox" id="tuesday" name="availability" value="tuesday">
-                    <label for="tuesday">Tuesday</label>
-                    <input type="checkbox" id="wednesday" name="availability" value="wednesday">
-                    <label for="wednesday">Wednesday</label>
-                    <input type="checkbox" id="thursday" name="availability" value="thursday">
-                    <label for="thursday">Thursday</label>
-                    <input type="checkbox" id="friday" name="availability" value="friday">
-                    <label for="friday">Friday</label>
-                    <input type="checkbox" id="saturday" name="availability" value="saturday">
-                    <label for="saturday">Saturday</label>
-                    <input type="checkbox" id="sunday" name="availability" value="sunday">
-                    <label for="sunday">Sunday</label>
+                    <span class="choice-option"><input type="checkbox" id="monday" name="availability" value="Monday">
+                    <label for="monday">Monday</label></span>
+                    <span class="choice-option"><input type="checkbox" id="tuesday" name="availability" value="Tuesday">
+                    <label for="tuesday">Tuesday</label></span>
+                    <span class="choice-option"><input type="checkbox" id="wednesday" name="availability" value="Wednesday">
+                    <label for="wednesday">Wednesday</label></span>
+                    <span class="choice-option"><input type="checkbox" id="thursday" name="availability" value="Thursday">
+                    <label for="thursday">Thursday</label></span>
+                    <span class="choice-option"><input type="checkbox" id="friday" name="availability" value="Friday">
+                    <label for="friday">Friday</label></span>
+                    <span class="choice-option"><input type="checkbox" id="saturday" name="availability" value="Saturday">
+                    <label for="saturday">Saturday</label></span>
+                    <span class="choice-option"><input type="checkbox" id="sunday" name="availability" value="Sunday">
+                    <label for="sunday">Sunday</label></span>
+                    <p id="availability-summary"></p>
                     <h3>EXPERIENCE WITH PETS</h3>
                     <label for="pet-experience"> Tell us about your experience with pets:</label>
                     <textarea id="pet-experience" name="pet-experience" rows="5" cols="40" maxlength="500"
-                        placeholder="500 Character Max" required></textarea>
+                        placeholder="500 Character Max" required aria-describedby="pet-experience-error"></textarea>
+                    <p id="pet-experience-error" class="field-error" aria-live="polite"></p>
                     <h3>SHORT MESSAGE</h3>
                     <label for="message">Is there anything else you would like us to know?</label>
                     <textarea id="message" name="message" rows="5" cols="40" maxlength="500"
                         placeholder="500 Character Max"></textarea>
                 </fieldset>
                 <button type="submit">Submit Form</button>
+                <p id="form-status" role="status" aria-live="polite"></p>
             </form>
         </section>
         <!-- Service Area Start -->
         <section>
             <h2>SERVICE AREA</h2>
             <p class="section-intro">
-                    Twin Cities Animal Rescue serves animals and families
-                    throughout the Twin Cities area and surrounding
-                    communities.</p>
+                Twin Cities Animal Rescue serves animals and families
+                throughout the Twin Cities area and surrounding
+                communities.</p>
         </section>
         <!-- Office Hours Start -->
         <section>
             <h2>OFFICE HOURS</h2>
             <p class="section-intro">
-                    Our team responds to volunteer, foster, and adoption
-                    inquiries during regular business hours.</p>
+                Our team responds to volunteer, foster, and adoption
+                inquiries during regular business hours.</p>
             <ul>
                 <li>Monday–Friday: 9:00 AM–5:00 PM</li>
                 <li>Saturday: 10:00 AM–2:00 PM</li>
@@ -130,5 +139,7 @@
         </nav>
         <p>&copy; 2026 Twin Cities Animal Rescue</p>
     </footer>
+    <script src="scripts/contact.js"></script>
 </body>
+
 </html>
