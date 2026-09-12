@@ -16,6 +16,7 @@ const interestError = document.getElementById("interest-error");
 const petExperienceInput = document.getElementById("pet-experience");
 const petExperienceError = document.getElementById("pet-experience-error");
 
+// Explain each option immediately so visitors can choose the right way to help.
 function updateInterestDetails(selectedInterest) {
     if (selectedInterest === "foster") {
         interestDetails.textContent = "Foster families provide a temporary, caring home for an animal waiting for adoption";
@@ -26,6 +27,8 @@ function updateInterestDetails(selectedInterest) {
     }
 }
 
+// One listener handles choices within the fieldset, including availability.
+// Save only interest and days; names, email, and written responses are not stored.
 interestSection.addEventListener("change", function (event) {
     if (event.target.name === "availability") {
         updateAvailabilitySummary();
@@ -38,6 +41,7 @@ interestSection.addEventListener("change", function (event) {
     localStorage.setItem("selectedInterest", event.target.value);
 });
 
+// Restore the visitor's saved interest so they do not have to select it again.
 const savedInterest = localStorage.getItem("selectedInterest");
 if (savedInterest) {
     const savedOption = document.querySelector(`input[name="interest"][value = "${savedInterest}"]`);
@@ -47,6 +51,7 @@ if (savedInterest) {
     }
 }
 
+// Keep the visible summary and saved days in sync with the checked boxes.
 function updateAvailabilitySummary() {
     const checkedDays = document.querySelectorAll(`input[name="availability"]:checked`);
     const selectedDays = [];
@@ -61,11 +66,14 @@ function updateAvailabilitySummary() {
 const savedDays = JSON.parse(localStorage.getItem("selectedDays")) || [];
 const availabilityOptions = document.querySelectorAll('input[name="availability"]');
 
+// Restore the checkboxes before rebuilding the summary on page load.
 availabilityOptions.forEach(function (day) {
     day.checked = savedDays.includes(day.value);
 });
 updateAvailabilitySummary();
 
+// Validators return true or false and update the matching inline error.
+// aria-invalid also exposes the error state to assistive technology and CSS.
 function validateFirstName() {
     const firstName = firstNameInput.value.trim();
     if (firstName === "") {
@@ -126,6 +134,7 @@ function validatePhone() {
     return true;
 }
 
+// Treat the radio buttons as one required choice and update their error state together.
 function validateInterest() {
     const selectedOption = document.querySelector('input[name="interest"]:checked');
     interestError.textContent = selectedOption ? "" : "Please select Volunteer, Foster, or Adoption Information.";
@@ -155,12 +164,14 @@ function validatePetExperience() {
     return true;
 }
 
+// Let the submit handler show the inline messages before browser validation.
 contactForm.noValidate = true;
 
 contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
     formStatus.textContent = "";
 
+    // Run every validator so visitors see all errors from a single submission.
     const firstNameValid = validateFirstName();
     const lastNameValid = validateLastName();
     const emailValid = validateEmail();
@@ -169,18 +180,24 @@ contactForm.addEventListener("submit", function (event) {
     const petExperienceValid = validatePetExperience();
     if (!firstNameValid || !lastNameValid || !emailValid ||
         !phoneValid || !interestValid || !petExperienceValid) {
+        // Move keyboard focus to the first field that needs correction.
+        contactForm.querySelector('[aria-invalid="true"]').focus();
         return;
     }
+    // Check remaining HTML constraints before showing the success message.
     if (!contactForm.reportValidity()) {
         return;
     }
     formStatus.textContent = "Your information passed validation. This is a class demonstration; no inquiry was sent.";
 });
 
+// Capture native invalid events because they do not bubble up from the fields.
 contactForm.addEventListener("invalid", function (event) {
     event.target.setAttribute("aria-invalid", "true");
 }, true);
 
+// Recheck fields already marked invalid as visitors correct them.
+// Untouched fields wait until submission, avoiding errors while visitors first type.
 contactForm.addEventListener("input", function (event) {
     formStatus.textContent = "";
     const field = event.target;
